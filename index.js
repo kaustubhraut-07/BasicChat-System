@@ -7,6 +7,7 @@ dotenv.config();
 const dbConnect = require('./config/dbConnect');
 const setupSocket = require('./socket/setupSocket');
 const chatRoutes = require("./routes/chat.route");
+const authRoutes = require("./routes/auth.route");
 
 const app = express();
 const server = http.createServer(app);
@@ -24,6 +25,7 @@ app.use(cors());
 
 
 app.use('/api/chat', chatRoutes);
+app.use('/api/auth', authRoutes)
 
 
 setupSocket(io);
